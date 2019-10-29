@@ -1,0 +1,3 @@
+= Application Restore Lab
+
+This is a GPTE lab to demonstrate application backup and restore using YAML manifests.
