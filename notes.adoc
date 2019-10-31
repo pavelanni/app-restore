@@ -1,0 +1,29 @@
+== Why is `oc export` gone?
+
+[source]
+----
+Maciej Szulik <maszulik@redhat.com>
+Jun 12, 2019, 9:00 AM
+to Ben, openshift-sme, Ravishankar, Jim, aos-developer-experience
+
+
+
+On Tue, Jun 11, 2019 at 4:55 PM Ben Parees <bparees@redhat.com> wrote:
+
+
+On Tue, Jun 11, 2019 at 7:01 AM Ravishankar Srinivasan <rsriniva@redhat.com> wrote:
+Hi SMEs,
+
+I notice that oc export --as-template command is no longer available in OCP 4.1. What's the new way to export resources from a running project into a template?
+
+With the removal of oc export --as-template I do not believe there is a replacement capability currently.
+
+oc export is gone in general, the overall direction both oc and kubectl developers are guiding people to
+use raw yaml/json and process the result as needed (iow. remove status or not, drop partial metadata or all, etc).
+The main reason towards this is that the multiple possiblecombination how people have used the export results
+and requested it being changed, sometimes even in completely separate directions.
+One such conflicting example is  backup vs export for future reuse, where backup want all data (including status),
+whereas the latter wants status and namespace cleared.
+----
+
+
